@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Here are the initial details of my customized travel vacation plans (see IActionresult in vacation controller).</h2>
+
+<!--
+<form method="post">
+    Are you interested in any of these destinations?<input type="hidden" value="@Model.ID" /> <!--This form with the Model.ID will send a piece of code to the server to let it know what the user entered. This is the information that normally shows up as a query string on the url bar IF it was a GET.-->
+    <!--NOTE: There is a "Model" in index.cshtml under the Views/Shared folder. It is inside the foreach (var product in Model) and acts as the vacationer's complete information.-->
+<!-- <select name="Hot Vacations">
+        <option value="Vegas">Vegas</option>
+        <option value="Reno">Reno</option>
+        <option value="Orleans">New Orleans</option>
+    </select>
+    <button class="btn btn-primary">Add to Cart</button>
+</form>-->
+
+<form action="" method="post">
+    <label for="name">First Name:</label>
+    <input type="text" name="CustomerName" id="name" required /><br />
+
+    <label for="email">E-mail:</label>
+    <input type="email" name="email" id="email" required/><br />
+
+    <label for="phone">Phone number:</label>
+    <input type="number" name="phoneNumber" id="phone" /><br />
+
+    <label for="budget">What is your approximate budget?</label>
+    <input type="number" name="budget" id="budget" value="1700" /><br />
+
+    <label for="destination">Your destination:</label>
+    <input type="text" name="DreamDestination" id="destination" /><br />
+
+    <label for="details">Any other details you want our agents to know about your upcoming vacation?</label>
+    <textarea id="details" name="DestinationDescription">
+
+    </textarea>
+
+    <input type ="submit" />
+</form>
+
+

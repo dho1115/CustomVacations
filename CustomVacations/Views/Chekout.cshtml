@@ -1,0 +1,35 @@
+﻿@model CustomVacations.CheckoutModel
+
+@{
+    ViewData["Title"] = "Chekout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--
+@if(!this.ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var error in (this.ViewData.ModelState.Where < x = x.Value.Errors.Count > 0).Select(x => x.Value.Errors)) 
+            {
+                foreach (var message in error)
+                {
+                    <li>message.ErrorMessage</li>
+
+                }
+
+            }
+        </ul>
+    </div>
+
+}
+<h2>Checkout <!--View--></h2>
+-->
+
+<form>
+    <div class="form-group">
+        <label>Email Address</label> <input type="email" required class="form-control"/>
+        <input type="submit" name="email" class="btn btn-primary"/>
+    </div>
+</form>
+

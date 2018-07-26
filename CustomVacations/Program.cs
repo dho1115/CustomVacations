@@ -14,6 +14,16 @@ namespace CustomVacations
     {
         public static void Main(string[] args)
         {
+            if((args.Length > 0) && (args[0].ToLowerInvariant() == "scrape"))
+            {
+                Services.datascraperservice.scrape();
+            }
+
+            else 
+            {
+                BuildWebHost(args).Run();
+            }
+
             BuildWebHost(args).Run();
         }
 

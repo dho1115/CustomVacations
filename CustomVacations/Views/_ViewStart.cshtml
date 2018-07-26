@@ -1,3 +1,30 @@
-﻿@{
-    Layout = "_Layout";
-}
+﻿
+<h1 style="margin-top: 150px"></h1>
+Hello from _ViewStart.cshtml inside the "Shared" folder.
+
+<form action="" method="post" value="Model.id">
+    <input type="number" name="id" id="id" value="1" />
+    <label for="name">First Name:</label>
+    <input type="text" name="CustomerName" id="name" required /><br />
+
+    <label for="email">E-mail:</label>
+    <input type="email" name="email" id="email" required /><br />
+
+    <label for="phoneNumber">Phone number:</label>
+    <input type="number" name="phoneNumber" id="phoneNumber" /><br />
+
+    <label for="budget">What is your approximate budget?</label>
+    <input type="number" name="budget" id="budget" value="1700" /><br />
+
+    <label for="DreamDestination">Your destination:</label>
+    <input type="text" name="DreamDestination" id="DreamDestination" /><br />
+
+    <label for="DestinationDetails">Any other details you want our agents to know about your upcoming vacation?</label>
+    <textarea id="DestinationDetails" name="DestinationDetails">
+
+    </textarea>
+
+    <input type="submit" />
+</form>
+
+

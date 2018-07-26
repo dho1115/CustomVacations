@@ -1,0 +1,33 @@
+﻿@model IEnumerable<VacationModel>
+
+@{
+    ViewData["Title"] = "Index"; //This ViewData is actually used in the _Layout.cshtml under title.
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Home Page (from Index.cshtml in SHARED)";
+}
+
+@foreach (var product in Model) //Note: "Model" will be used later as a post request inside the Details.cshtml.
+{
+    <div>
+        <h1>CUSTOMER NAME: <span style="background-color: yellowgreen">@product.CustomerName</span><span style="font-size: 7px">(form is taken from index.cshtml inside "Views/Shared" folder)</span></h1>
+        <h5>ID: <span>@product.ID</span></h5>
+        <h5>E-MAIL: <span>@product.email</span></h5>
+        <h5>PHONE: <span>@product.phoneNumber</span></h5>
+        <h5>BUDGET: <span>@product.budget</span></h5>
+        <h5>YOUR DREAM DESTINATION: <span>@product.DreamDestination</span></h5>
+        <h5>DESCRIBE IN AS MUCH DETAIL WHAT YOU WANT IN YOUR DREAM DESTINATION:</h5>
+        <textarea>
+        @product.DestinationDescription
+        </textarea>
+    </div>
+}
+
+
+<style type="text/css">
+    body {
+        background-color: lightyellow;
+    }
+</style>
