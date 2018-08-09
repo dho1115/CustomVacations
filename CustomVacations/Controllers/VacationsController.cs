@@ -25,15 +25,36 @@ namespace CustomVacations.Controllers
             {
                 Console.WriteLine("Get all vacation options");
 
-                vacationmodel.Add(new VacationModel {
+                vacationmodel.Add(new VacationModel
+                {
                     CustomerName = "Jamie (from vacationscontroller.cs)",
-                    email ="Jamie@someemail.com",
+                    email = "Jamie@someemail.com",
                     phoneNumber = 3124567890,
                     DreamDestination = "Reno",
                     budget = 2500,
-                    DestinationDescription = "Wanna go to Reno."}
-                );
-            } 
+                    DestinationDescription = "Wanna go to Reno."
+                });
+
+                vacationmodel.Add(new VacationModel
+                {
+                    CustomerName = "Kelley (from vacationscontroller.cs)",
+                    email = "KelleyZ@someemail.com",
+                    phoneNumber = 3334445567,
+                    DreamDestination = "South Beach, Miami, Florida",
+                    budget = 2500,
+                    DestinationDescription = "Wanna go to SouthBeach."
+                });
+
+                vacationmodel.Add(new VacationModel
+                {
+                    CustomerName = "AJ (from vacationscontroller.cs)",
+                    email = "AlexJay@someemail.com",
+                    phoneNumber = 3334445567,
+                    DreamDestination = "New York, NY",
+                    budget = 3000,
+                    DestinationDescription = "Wanna go to NYC."
+                });
+            }
 
             else if(USA.ToLowerInvariant() == "Las_Vegas")
             {
@@ -82,9 +103,10 @@ namespace CustomVacations.Controllers
         } 
         */
 
+        /*
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Details(CheckoutModel modelinfo) //This code will check to see if the user actually entered the correct email address.
+        public IActionResult Details(CheckoutModel modelinfo, int? id) //This code will check to see if the user actually entered the correct email address.
         {
             if(string.IsNullOrEmpty(modelinfo.email))
             {
@@ -93,10 +115,10 @@ namespace CustomVacations.Controllers
             
             else
             {
-                return RedirectToAction("Index", "Receipt", new Guid(ID = Guid.NewGuid());
+                return RedirectToAction("Index", "Receipt", new Guid(id = new Guid.NewGuid()));
             }
         } 
-
+        */
     } 
 
 }
