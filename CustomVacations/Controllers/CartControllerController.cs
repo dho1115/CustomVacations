@@ -15,7 +15,6 @@ namespace CustomVacations.Controllers
             VacationCart cart = new VacationCart
             {
                 id = 1,
-
             };
 
             return View();
@@ -46,11 +45,7 @@ namespace CustomVacations.Controllers
 
             //How to render out your composite model:
             //Under the index.cshtml: @if(model.Products.Count == 0) {"You have nothing in your cart."}. Else {
-            //<table>@foreach(var product in Model.Products) {<tr><td>@(product.Name)</td></tr>, @(product.Price).toString...</table>
-
-        
-
-
+            //<table>@foreach(var product in Model.Products) {<tr><td>@(product.Name)</td></tr>, @(product.Price).toString...</table> 
             
         }
     }

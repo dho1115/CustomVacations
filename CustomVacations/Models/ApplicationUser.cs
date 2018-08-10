@@ -17,5 +17,8 @@ namespace CustomVacations.Models
         }
 
         public ApplicationUser(string userName) : base(userName)
+        {
+            this.VacationCart = new VacationCart();
+        }
     }
 }

@@ -14,5 +14,10 @@ namespace CustomVacations.Models
         [Display(Name = "Email Address")]
         [MinLength(10)]
         public string email { get; set; }
+
+        public string StreetAddress { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string ZipCode { get; set; }
     }
 }
