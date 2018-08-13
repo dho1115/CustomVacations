@@ -13,7 +13,7 @@ using Microsoft.EntityFrameworkCore;
 namespace CustomVacations.Controllers
 {
     public class VacationsController : Controller
-    {
+    {        
         private ApplicationDbContext _context;
         private UserManager<ApplicationUser> _userManager;
 
@@ -22,11 +22,11 @@ namespace CustomVacations.Controllers
             this._context = context;
             this._userManager = userManager;
         }
-
+        
         //[Microsoft.AspNetCore.Authorization.Authorize] - This will direct the user to either the login page or to whatever page we want to direct them to.
 
 
-        public IActionResult Index(string USA)
+        public IActionResult Index(string category)
         {
             if (_context.VacationModels.Count() == 0) //Adds data to table (?).
             {
@@ -48,11 +48,13 @@ namespace CustomVacations.Controllers
 
                 _context.SaveChanges();
             }
+            
+            //GO TO VIEWS/VACATIONS/INDEX
 
-            ViewBag.selectedCategory = USA;
+            ViewBag.selectedCategory = category;
             //List<VacationModel> model;
 
-            if (string.IsNullOrEmpty(USA)) //The future form to fill out(?).
+            if (string.IsNullOrEmpty(category)) //The future form to fill out(?).
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -124,8 +126,7 @@ namespace CustomVacations.Controllers
 
                 cart.VacationModelVacationCarts.Add(product);
             }
-
-
+            
             product.Quantity += quantity;
             product.DateLastModified = DateTime.Now;
 

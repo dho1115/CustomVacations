@@ -1,5 +1,10 @@
 ﻿
 
+@{
+    ViewData["Title"] = "Home Page";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,37 +20,41 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
-    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 </head>
+
+
 
 <style type="text/css">
     body {
+        background-image: url("../../wwwroot/images/CostaRicaRainForest.jpg");
         background-color: antiquewhite;
     }
 
     .title {
         color: firebrick;
         text-align: center;
-        font-family: 'Lobster', cursive;
+        font-family: 'Pacifico', cursive;
     }
 
     .subhead {
         color: ivory;
         text-align: center;
     }
-
 </style>
 
 <body>
-    
+
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            <h1 style="line-height: 1" class="title">BIDTRIP</h1>
-            <h3 class="subhead">Where travel agents compete for your vacation requests!</h3>
-            <p style="line-height: 0" class="subhead">(from index.cshtml in Home)</p>
+
+            <h1 style="line-height: 1" class="title">TRAVEL-BID</h1>
+            <h3 class="subhead">America's Premiere Travel Matchmaker!</h3>
+
         </div>
         <div class="container">
+            <!--
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -55,25 +64,74 @@
                 </button>
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">CustomVacations</a>
             </div>
+                -->
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                     <!--Added-->
-                    <li><a asp-controller="Vacations" asp-action="Index" asp-route-category="USA">Your Vacation Queue (from Shared/_Layout.cshtml)</a></li> <!--The asp-controller will cause the page to go to the "VacationsController" when clicked-->
+                    <li><a asp-controller="Vacations" asp-action="Index" asp-route-category="USA">Need Some Suggestions Where To Go?</a></li> <!--The asp-controller will cause the page to go to the "VacationsController" when clicked-->
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>
     </nav>
-        <div class="container body-content">            
-            <hr />
-            <footer>
-                <p>&copy; 2018 - CustomVacations</p>
-            </footer>
+    <div class="container body-content">
+
+        <h1 style="margin-top: 150px"></h1>
+
+        <h1 style="text-align: center">Fill out the form below to start the bidding process!</h1>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+
+                </div>
+
+                <div class="col-sm-6">
+
+                    <form action="" method="post" value="Model.id">
+
+                        <label for="name">First Name:</label>
+                        <input type="text" name="CustomerName" id="name" required /><br />
+
+                        <label for="email">E-mail:</label>
+                        <input type="email" name="email" id="email" required /><br />
+
+                        <label for="phoneNumber">Phone number:</label>
+                        <input type="number" name="phoneNumber" id="phoneNumber" /><br />
+
+                        <label for="budget">What is your approximate budget?</label>
+                        <input type="number" name="budget" id="budget" value="1700" /><br />
+
+                        <label for="DreamDestination">Your destination:</label>
+                        <input type="text" name="DreamDestination" id="DreamDestination" /><br />
+
+                        <label for="DestinationDetails">Any other details you want our agents to know about your upcoming vacation?</label><br />
+                        <textarea id="DestinationDetails" name="DestinationDetails"></textarea>
+
+                        <input type="submit" />
+                    </form>
+
+                </div>
+
+                <div class="col-sm-3">
+
+                </div>
+            </div>
         </div>
 
+    </div>
+
+    <div style="margin-top: 7vw">        
+        <footer>
+            <p>&copy; 2018 - CustomVacations</p>
+        </footer>
+    </div>
+    
+
+    <!--
         <environment include="Development">
             <script src="~/lib/jquery/dist/jquery.js"></script>
             <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
@@ -94,110 +152,112 @@
             </script>
             <script src="~/js/site.min.js" asp-append-version="true"></script>
         </environment>
-    </body>
-
-
-    <!--
-    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img src="~/images/banner1.svg" alt="ASP.NET" class="img-responsive" />
-                <div class="carousel-caption" role="option">
-                    <p>
-                        Learn how to build ASP.NET apps that can run anywhere.
-                        <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
-                            Learn More
-                        </a>
-                    </p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="~/images/banner2.svg" alt="Visual Studio" class="img-responsive" />
-                <div class="carousel-caption" role="option">
-                    <p>
-                        There are powerful new features in Visual Studio for building modern web apps.
-                        <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
-                            Learn More
-                        </a>
-                    </p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="~/images/banner3.svg" alt="Package Management" class="img-responsive" />
-                <div class="carousel-caption" role="option">
-                    <p>
-                        Bring in libraries from NuGet and npm, and automate tasks using Grunt or Gulp.
-                        <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525029&clcid=0x409">
-                            Learn More
-                        </a>
-                    </p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="~/images/banner4.svg" alt="Microsoft Azure" class="img-responsive" />
-                <div class="carousel-caption" role="option">
-                    <p>
-                        Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
-                        <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
-                            Learn More
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
-
-    <div class="row">
-        <div class="col-md-3">
-            <h2>Application uses</h2>
-            <ul>
-                <li>Sample pages using ASP.NET Core MVC</li>
-                <li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
-            </ul>
-        </div>
-        <div class="col-md-3">
-            <h2>How to</h2>
-            <ul>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Add a Controller and View</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Manage User Secrets using Secret Manager.</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Use logging to log a message.</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Add packages using NuGet.</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Target development, staging or production environment.</a></li>
-            </ul>
-        </div>
-        <div class="col-md-3">
-            <h2>Overview</h2>
-            <ul>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Conceptual overview of what is ASP.NET Core</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Fundamentals of ASP.NET Core such as Startup and middleware.</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Working with Data</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Security</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Client side development</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Develop on different platforms</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Read more on the documentation site</a></li>
-            </ul>
-        </div>
-        <div class="col-md-3">
-            <h2>Run &amp; Deploy</h2>
-            <ul>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
-            </ul>
-        </div>
-    </div>
         -->
+
+</body>
+
+
+<!--
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="~/images/banner1.svg" alt="ASP.NET" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    Learn how to build ASP.NET apps that can run anywhere.
+                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
+                        Learn More
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/banner2.svg" alt="Visual Studio" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    There are powerful new features in Visual Studio for building modern web apps.
+                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
+                        Learn More
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/banner3.svg" alt="Package Management" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    Bring in libraries from NuGet and npm, and automate tasks using Grunt or Gulp.
+                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525029&clcid=0x409">
+                        Learn More
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/banner4.svg" alt="Microsoft Azure" class="img-responsive" />
+            <div class="carousel-caption" role="option">
+                <p>
+                    Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
+                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
+                        Learn More
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>Application uses</h2>
+        <ul>
+            <li>Sample pages using ASP.NET Core MVC</li>
+            <li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h2>How to</h2>
+        <ul>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Add a Controller and View</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Manage User Secrets using Secret Manager.</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Use logging to log a message.</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Add packages using NuGet.</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Target development, staging or production environment.</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h2>Overview</h2>
+        <ul>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Conceptual overview of what is ASP.NET Core</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Fundamentals of ASP.NET Core such as Startup and middleware.</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Working with Data</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Security</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Client side development</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Develop on different platforms</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Read more on the documentation site</a></li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <h2>Run &amp; Deploy</h2>
+        <ul>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
+            <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
+        </ul>
+    </div>
+</div>
+    -->

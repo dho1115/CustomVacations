@@ -1,4 +1,13 @@
-﻿body {
+﻿
+
+.backgroundimg {
+    background-image: url("../images/Iceland.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
