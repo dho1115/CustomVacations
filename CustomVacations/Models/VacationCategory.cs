@@ -10,7 +10,7 @@ namespace CustomVacations.Models
         public string CategoryName { get; set; }
         public DateTime? DateCreated { get; set; }
         public DateTime? DateLastModified { get; set; }
-
+        
         public ICollection<VacationModel> VacationModels { get; set; }
         public VacationCategory()
         {

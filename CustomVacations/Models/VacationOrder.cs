@@ -13,7 +13,7 @@ namespace CustomVacations.Models
         public ICollection<VacationOrderDestinationDetails> VacationOrderDestinationDetails { get; set; }
         public VacationOrder()
         {
-            this.VacationOrderDestinationDetails = new HashSet<VacationOrderDestinationDetails>();
+           
         }
 
     }

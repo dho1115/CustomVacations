@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using CustomVacations.Data;
 using CustomVacations.Models;
 using CustomVacations.Services;
+using Microsoft.Extensions.Options;
 
 namespace CustomVacations
 {
@@ -26,16 +27,23 @@ namespace CustomVacations
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("Default")
+                /*options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))*/);
+
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
             // Add application services.
-            services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<IEmailSender, EmailSender>(); //This is where you will stash your API key.
 
+            services.AddTransient<Braintree.IBraintreeGateway>((IServiceProvider) => new Braintree.BraintreeGateway(
+                Configuration.GetValue<string>("Braintree.Environment"),
+                Configuration.GetValue<string>("Braintree.MerchantId"),
+                Configuration.GetValue<string>("Braintree.PublicKey"),
+                Configuration.GetValue<string>("Braintree.PrivateKey")
+                ));
             services.AddMvc();
         }
 
@@ -65,4 +73,6 @@ namespace CustomVacations
             });
         }
     }
+
+    //Rolemanager CANNOT be run first.
 }

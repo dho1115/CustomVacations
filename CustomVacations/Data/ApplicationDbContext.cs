@@ -14,6 +14,7 @@ namespace CustomVacations.Data
         public DbSet<VacationCategory> vacationCategories { get; set; }
         public DbSet<VacationCart> VacationCarts { get; set; }
         public DbSet<VacationModelVacationCart> VacationModelCarts { get; set; }
+        public DbSet<VacationSuggestions> GetVacationSuggestions { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

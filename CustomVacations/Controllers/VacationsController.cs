@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CustomVacations.Controllers
 {
-    public class VacationsController : Controller
+    public class VacationsController : Controller 
     {        
         private ApplicationDbContext _context;
         private UserManager<ApplicationUser> _userManager;
@@ -26,7 +26,7 @@ namespace CustomVacations.Controllers
         //[Microsoft.AspNetCore.Authorization.Authorize] - This will direct the user to either the login page or to whatever page we want to direct them to.
 
 
-        public IActionResult Index(string category)
+        public async Task <IActionResult> Index(string category = "USA")
         {
             if (_context.VacationModels.Count() == 0) //Adds data to table (?).
             {
@@ -46,39 +46,39 @@ namespace CustomVacations.Controllers
 
                 _context.vacationCategories.Add(new VacationCategory { CategoryName = "Europe", VacationModels = ItalyTrip });
 
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
             }
-            
-            //GO TO VIEWS/VACATIONS/INDEX
 
             ViewBag.selectedCategory = category;
-            //List<VacationModel> model;
 
-            if (string.IsNullOrEmpty(category)) //The future form to fill out(?).
+            if(string.IsNullOrEmpty(category))
             {
-                return RedirectToAction("Index", "Home");
-            }
+                return RedirectToAction("SuggestedDestinations", "Index");
+            } 
+
+            //GO TO VIEWS/VACATIONS/INDEX            
 
             return Content("Thank you! Now, just sit back and relax as out agents review your request!"); //<= After the form is completed?
         }
-
-        public IActionResult Details(int? id)
+        
+        
+        public async Task<IActionResult> Details(int? id)
         {
-            VacationModel model = _context.VacationModels.Find(id);
+            VacationModel model = await _context.VacationModels.FindAsync(id);
 
             return View(model);
         }
                 
         [HttpPost]
-        public IActionResult Details(int? id, int quantity, string color)
+        public async Task<IActionResult> Details(int? id, int quantity, string color)
         {
             VacationCart cart = null;
 
             if(User.Identity.IsAuthenticated)
             {
-                var currentUser = _userManager.GetUserAsync(User).Result;
-
-                cart = _context.VacationCarts.Include(x => x.VacationModelVacationCarts).FirstOrDefault(x => x.Applicationuserid == currentUser.Id);
+                var currentUser = await _userManager.GetUserAsync(User);
+                
+                //cart = await _context.VacationCarts.Include(x => x.VacationModelVacationCarts).FirstOrDefault(x => x.Applicationuserid == currentUser.Id);                
 
                 if (cart == null)
                 {
