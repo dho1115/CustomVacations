@@ -7,9 +7,18 @@
     background-position: center;
 }
 
-body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+.HongKong {
+    background-image: url("../images/HongKong.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;    
+}
+
+.Banff {
+    background-image: url("../images/Banff.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 /* Wrapping element */

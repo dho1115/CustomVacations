@@ -28,7 +28,7 @@ namespace CustomVacations.Controllers
 
         public async Task <IActionResult> Index(string category = "USA")
         {
-            if (_context.VacationModels.Count() == 0) //Adds data to table (?).
+            if (_context.VacationModels.Count() != 0) //Adds data to table (?).
             {
                 List<VacationModel> CanadaTrip = new List<VacationModel>();
 

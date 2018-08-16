@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - CustomVacations</title>
+    <title>@ViewData["Title"] - Travel Bid</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -21,32 +21,26 @@
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+
+
+    <style type="text/css">      
+
+        .title {
+            color: firebrick;
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+        }
+
+        .subhead {
+            color: ivory;
+            text-align: center;
+        }
+    </style>
 </head>
 
 
-
-<style type="text/css">
-    body {
-        background-image: url("../../wwwroot/images/CostaRicaRainForest.jpg");
-        background-color: antiquewhite;
-    }
-
-    .title {
-        color: firebrick;
-        text-align: center;
-        font-family: 'Pacifico', cursive;
-    }
-
-    .subhead {
-        color: ivory;
-        text-align: center;
-    }
-</style>
-
 <body>
-
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top HongKong">
         <div class="container">
 
             <h1 style="line-height: 1" class="title">TRAVEL-BID</h1>
@@ -73,6 +67,7 @@
                     <!--Added-->
                     <li><a asp-controller="Vacations" asp-action="Index" asp-route-category="USA">Need Some Suggestions Where To Go?</a></li> <!--The asp-controller will cause the page to go to the "VacationsController" when clicked-->
                 </ul>
+
                 @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>
@@ -81,9 +76,9 @@
 
         <h1 style="margin-top: 150px"></h1>
 
-        <h1 style="text-align: center">Fill out the form below to start the bidding process!</h1>
+        <h1 style="text-align: center;">Fill out the form below to start the bidding process!</h1>
 
-        <div class="container">
+        <div class="container" style="border: 1px solid white; background-color: ivory; padding-top: 7px; padding-bottom: 3px; border-radius: 15px">
             <div class="row">
                 <div class="col-sm-3">
 

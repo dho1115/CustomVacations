@@ -40,5 +40,7 @@ namespace CustomVacations.Data
                 .WithOne(x => x.ApplicationUser)
                 .HasForeignKey<VacationCart>(x => x.Applicationuserid);
         }
+
+        public DbSet<CustomVacations.Models.VacationOrder> VacationOrder { get; set; }
     }
 }
