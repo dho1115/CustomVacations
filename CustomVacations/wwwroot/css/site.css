@@ -21,13 +21,6 @@
     background-position: center;
 }
 
-.Iceland {
-    background-image: url("../images/Iceland.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {

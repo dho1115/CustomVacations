@@ -34,16 +34,23 @@
         .subhead {
             color: ivory;
             text-align: center;
+        } 
+
+        li h3 {
+            border: 1px solid red;
+            background-color: red;
+            border-radius: 30px;
+            color: ivory;
         }
     </style>
 </head>
 
 
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top HongKong">
+    <nav class="navbar navbar-inverse navbar-fixed-top backgroundimg">
         <div class="container">
 
-            <h1 style="line-height: 1" class="title">TRAVEL-BID</h1>
+            <h1 style="line-height: 1; color: ghostwhite" class="title">TRAVEL-BID</h1>
             <h3 class="subhead">America's Premiere Travel Matchmaker!</h3>
 
         </div>
@@ -61,22 +68,25 @@
                 -->
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index"><h3>Home</h3></a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About"><h3>About</h3></a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact"><h3>Contact</h3></a></li>
                     <!--Added-->
-                    <li><a asp-controller="Vacations" asp-action="Index" asp-route-category="USA">Need Some Suggestions Where To Go?</a></li> <!--The asp-controller will cause the page to go to the "VacationsController" when clicked-->
+                    <li><a asp-controller="Vacations" asp-action="Index" asp-route-category="USA"><h3>Need Vacation Suggestions?</h3></a></li> <!--The asp-controller will cause the page to go to the "VacationsController" when clicked-->
                 </ul>
 
                 @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>
     </nav>
+    <div style="height: 7vw">
+
+    </div>
     <div class="container body-content">
 
         <h1 style="margin-top: 150px"></h1>
 
-        <h1 style="text-align: center;">Fill out the form below to start the bidding process!</h1>
+        <h1 style="text-align: center; color: ivory">Fill out the form below to start the bidding process!</h1>
 
         <div class="container" style="border: 1px solid white; background-color: ivory; padding-top: 7px; padding-bottom: 3px; border-radius: 15px">
             <div class="row">
