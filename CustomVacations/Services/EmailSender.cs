@@ -18,7 +18,7 @@ namespace CustomVacations.Services
         }
         public Task SendEmailAsync(string email, string subject, string message) //This comes from the IEmailSender.
         {
-            SendGrid.SendGridClient client = new SendGrid.SendGridClient(_apikey);//("SG.wtUodgDMRLuSuUeECQ0BSw.mkHe1ByLeku9kUewWAvjttWwO64NgOW2JmWelW11wd0");
+            SendGrid.SendGridClient client = new SendGrid.SendGridClient(_apikey);
 
             var msg = new SendGrid.Helpers.Mail.SendGridMessage()
             {
